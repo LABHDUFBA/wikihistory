@@ -22,7 +22,8 @@ user_edits <- function(id_user, lang) {
       dplyr::transmute(id_user = id_user,
                        page_title,
                        "n_edits" = edits) %>%
-     dplyr::mutate(n_edits = readr::parse_number(n_edits)) %>%
+     dplyr::mutate(n_edits =  as.character(n_edits),
+                   n_edits = readr::parse_number(n_edits)) %>%
      tibble::as_tibble()
 
 
