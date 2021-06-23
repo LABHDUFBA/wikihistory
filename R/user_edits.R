@@ -6,28 +6,43 @@ user_edits <- function(id_user, lang) {
 
   html <- rvest::read_html(url_encoded)
 
-  table <- html %>%
-    rvest::html_node(xpath = '//*[@class="table table-bordered table-hover table-striped topedits-namespace-table xt-show-hide--target"]') %>%
-    rvest::html_table()
+   is_error <- html %>%
+   rvest::html_table() %>%
+   length()
 
-  table %>%
-    janitor::clean_names() %>%
-    dplyr::transmute(id_user = id_user,
-                     page_title,
-                     "n_edits" = edits)
 
+  if (is_error == 1) {
+
+    table <- html %>%
+      rvest::html_node(xpath = '//*[@class="table table-bordered table-hover table-striped topedits-namespace-table xt-show-hide--target"]') %>%
+      rvest::html_table()
+
+   table %>%
+      janitor::clean_names() %>%
+      dplyr::transmute(id_user = id_user,
+                       page_title,
+                       "n_edits" = edits) %>%
+     dplyr::mutate(n_edits = readr::parse_number(n_edits)) %>%
+     tibble::as_tibble()
+
+
+
+  } else {
+
+    tibble::tibble(
+      id_user, page_title = "This user has not opted in to have this data shown",
+      n_edits = NA_real_
+     )  %>%
+      dplyr::mutate(n_edits = as.numeric(n_edits)) %>%
+      tibble::as_tibble()
+   }
 
 }
 
-# users <-
-#   get_history("Jair Bolsonaro", n_limit = 100, lang = "pt") %>%
-#   get_users_edits()
 
 get_all_edits <- function(users, lang = "pt") {
-  purrr::map_dfr(users , user_edits, lang = "pt")
+  purrr::map_dfr(users, user_edits, lang = "pt")
 
   # Error in UseMethod("html_table") :
   #   no applicable method for 'html_table' applied to an object of class "xml_missing"
-
-
 }

@@ -1,0 +1,34 @@
+#' Title
+#'
+#' @param page
+#' @param lang
+#'
+#' @return
+#' @export
+#'
+#' @examples
+get_categories <- function(page, lang = "en") {
+  page_search <- page %>% stringr::str_replace_all(" ", "_")
+
+  url_wikipedia <-
+    glue::glue("https://{lang}.wikipedia.org/wiki/{page_search}")
+  url_encoded <- utils::URLencode(url_wikipedia)
+
+  html <- rvest::read_html(url_encoded)
+
+  itens <-
+    rvest::html_node(html, xpath = '//*[@id="mw-normal-catlinks"]') %>%
+    rvest::html_nodes("li")
+
+  category <- itens %>%
+    rvest::html_text()
+
+  link <- itens %>%
+    rvest::html_nodes("a") %>% rvest::html_attr("href")
+
+  tibble::tibble(page,
+                 category,
+                 link = glue::glue("https://{lang}.wikipedia.org{link}"))
+
+
+}
