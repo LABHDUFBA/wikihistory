@@ -26,6 +26,7 @@ get_template <- function(template, lang) {
                     "page_name" = 2) %>%
       dplyr::select(-3) %>%
       tidyr::separate_rows(page_name, sep = "·") %>%
+      tidyr::separate_rows(page_name, sep = ":") %>%
       dplyr::mutate(page_name = stringr::str_squish(page_name),
                     template = template)
   } else {
