@@ -9,3 +9,16 @@ test_that("get_categories works", {
   expect_equal(ncol(jb_categories), 3)
 
 })
+
+
+
+
+test_that("get_pages_in_categories works", {
+
+  mc_pages <- get_pages_in_categories("Mudanças climáticas", "pt")
+
+  expect_s3_class(mc_pages, "data.frame")
+  expect_gt(nrow(mc_pages), 50)
+  expect_equal(ncol(mc_pages), 3)
+
+})
