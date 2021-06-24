@@ -7,7 +7,7 @@ test_that("clean_history() works", {
 
   expect_s3_class(clean_jb_100_pt, "data.frame")
   expect_equal(nrow(clean_jb_100_pt), 100)
-  expect_equal(ncol(clean_jb_100_pt), 11)
+  expect_equal(ncol(clean_jb_100_pt), 12)
 
 
 })

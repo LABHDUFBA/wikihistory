@@ -62,6 +62,7 @@ get_history <- function(page, n_limit = "10000", lang = "en") {
 
 
   tabela_suja <- tibble::tibble(
+    page,
     id,
     user,
     date,
