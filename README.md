@@ -5,7 +5,12 @@
 
 <!-- badges: start --> [![Codecov test
 coverage](https://codecov.io/gh/beatrizmilz/wikihistory/branch/main/graph/badge.svg)](https://codecov.io/gh/beatrizmilz/wikihistory?branch=main)
-<!-- badges: end -->
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end --> <!-- badges: end -->
 
 The goal of wikihistory is to …
 

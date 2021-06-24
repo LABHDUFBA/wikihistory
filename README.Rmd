@@ -16,7 +16,11 @@ knitr::opts_chunk$set(
 # wikihistory
 
  <!-- badges: start -->
-  [![Codecov test coverage](https://codecov.io/gh/beatrizmilz/wikihistory/branch/main/graph/badge.svg)](https://codecov.io/gh/beatrizmilz/wikihistory?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/beatrizmilz/wikihistory/branch/main/graph/badge.svg)](https://codecov.io/gh/beatrizmilz/wikihistory?branch=main)
+  
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
   <!-- badges: end -->
 
 The goal of wikihistory is to ...
