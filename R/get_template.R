@@ -23,10 +23,11 @@ get_template <- function(template, lang) {
       purrr::pluck(1) %>%
       janitor::clean_names() %>%
       dplyr::rename("themes" = 1,
-                    "pages" = 2) %>%
+                    "page_name" = 2) %>%
       dplyr::select(-3) %>%
-      tidyr::separate_rows(pages, sep = "·") %>%
-      dplyr::mutate(pages = stringr::str_squish(pages))
+      tidyr::separate_rows(page_name, sep = "·") %>%
+      dplyr::mutate(page_name = stringr::str_squish(page_name),
+                    template = template)
   } else {
     stop("This language is not implemented yet.")
   }
