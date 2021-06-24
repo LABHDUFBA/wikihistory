@@ -12,3 +12,20 @@
 #' @param rhs A function call using the magrittr semantics.
 #' @return The result of calling `rhs(lhs)`.
 NULL
+
+
+
+
+globalVariables(
+  c(
+    "edits",
+    "n_characters_added",
+    "n_characters_removed",
+    "n_edits",
+    "original_comment",
+    "page_title",
+    "section",
+    "user"
+
+  )
+)

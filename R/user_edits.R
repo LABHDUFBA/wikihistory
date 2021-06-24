@@ -1,3 +1,12 @@
+#' Title
+#'
+#' @param id_user
+#' @param lang
+#'
+#' @return
+#' @export
+#'
+#' @examples
 user_edits <- function(id_user, lang) {
   url <-
     glue::glue("https://xtools.wmflabs.org/topedits/{lang}.wikipedia.org/{id_user}/0")
@@ -41,9 +50,15 @@ user_edits <- function(id_user, lang) {
 }
 
 
+#' Title
+#'
+#' @param users
+#' @param lang
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_all_edits <- function(users, lang = "pt") {
   purrr::map_dfr(users, user_edits, lang = "pt")
-
-  # Error in UseMethod("html_table") :
-  #   no applicable method for 'html_table' applied to an object of class "xml_missing"
 }
