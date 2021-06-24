@@ -2,12 +2,13 @@
 #'
 #' @param id_user
 #' @param lang
+#' @param sys_sleep
 #'
 #' @return
 #' @export
 #'
 #' @examples
-user_edits <- function(id_user, lang) {
+user_edits <- function(id_user, lang, sys_sleep = FALSE, sleep_seconds = 5) {
   url <-
     glue::glue("https://xtools.wmflabs.org/topedits/{lang}.wikipedia.org/{id_user}/0")
 
@@ -45,7 +46,12 @@ user_edits <- function(id_user, lang) {
      )  %>%
       dplyr::mutate(n_edits = as.numeric(n_edits)) %>%
       tibble::as_tibble()
+  }
+
+   if(sys_sleep == TRUE){
+     Sys.sleep(time = sleep_seconds)
    }
+
 
 }
 

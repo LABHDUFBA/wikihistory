@@ -4,10 +4,10 @@
 \alias{user_edits}
 \title{Title}
 \usage{
-user_edits(id_user, lang)
+user_edits(id_user, lang, sys_sleep = FALSE, sleep_seconds = 5)
 }
 \arguments{
-\item{lang}{}
+\item{sys_sleep}{}
 }
 \value{
 
