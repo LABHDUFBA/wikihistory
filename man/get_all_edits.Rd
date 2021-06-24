@@ -4,10 +4,10 @@
 \alias{get_all_edits}
 \title{Title}
 \usage{
-get_all_edits(users, lang = "pt")
+get_all_edits(users, lang = "pt", sys_sleep = FALSE, sleep_seconds = 5)
 }
 \arguments{
-\item{lang}{}
+\item{sleep_seconds}{}
 }
 \value{
 

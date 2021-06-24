@@ -3,6 +3,7 @@
 #' @param id_user
 #' @param lang
 #' @param sys_sleep
+#' @param sleep_seconds
 #'
 #' @return
 #' @export
@@ -60,11 +61,13 @@ user_edits <- function(id_user, lang, sys_sleep = FALSE, sleep_seconds = 5) {
 #'
 #' @param users
 #' @param lang
+#' @param sys_sleep
+#' @param sleep_seconds
 #'
 #' @return
 #' @export
 #'
 #' @examples
-get_all_edits <- function(users, lang = "pt") {
+get_all_edits <- function(users, lang = "pt", sys_sleep = FALSE, sleep_seconds = 5) {
   purrr::map_dfr(users, user_edits, lang = "pt")
 }

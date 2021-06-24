@@ -7,7 +7,7 @@
 user_edits(id_user, lang, sys_sleep = FALSE, sleep_seconds = 5)
 }
 \arguments{
-\item{sys_sleep}{}
+\item{sleep_seconds}{}
 }
 \value{
 
