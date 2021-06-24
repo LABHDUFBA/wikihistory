@@ -15,7 +15,7 @@
 #
 # test_that("get_all_edits works", {
 #
-#    jb_all_edits <- get_history("Jair Bolsonaro", n_limit = 3, lang = "pt") %>%
+#    jb_all_edits <- get_history("Jair Bolsonaro", n_limit = 10, lang = "pt") %>%
 #     get_users_edits() %>%
 #     get_all_edits()
 #
